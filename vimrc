@@ -2,12 +2,28 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
-filetype plugin indent on
-set cindent
+" Set leader key to comma
+let mapleader = ","
+
+" Fuzzy Finder shortcuts
+nmap ,f :FufFileWithCurrentBufferDir<CR>
+nmap ,b :FufBuffer<CR>
+nmap ,t :FufTaggedFile<CR>
+
+" Default encoding
+set encoding=utf-8
+
+" Whitespace
 set expandtab
 set shiftwidth=4
 set tabstop=4
+
+" Syntax and file types
+filetype plugin indent on
+set cindent
 syntax on
+
+" 
 colorscheme wombat
 set nu
 set guioptions-=T
