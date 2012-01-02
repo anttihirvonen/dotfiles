@@ -4,3 +4,12 @@
 [submodule "vim/bundle/vim-wombat"]
 	path = vim/bundle/vim-wombat
 	url = https://github.com/cschlueter/vim-wombat.git
+[submodule "vim/bundle/vim-puppet"]
+	path = vim/bundle/vim-puppet
+	url = https://github.com/frimik/vim-puppet.git
+[submodule "vim/bundle/vim-fuzzyfinder"]
+	path = vim/bundle/vim-fuzzyfinder
+	url = https://github.com/clones/vim-fuzzyfinder.git
+[submodule "vim/bundle/vim-l9"]
+	path = vim/bundle/vim-l9
+	url = https://github.com/clones/vim-l9.git
