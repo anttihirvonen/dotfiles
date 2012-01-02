@@ -1,3 +1,6 @@
 [submodule "vim/bundle/vim-pathogen"]
 	path = vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule "vim/bundle/vim-wombat"]
+	path = vim/bundle/vim-wombat
+	url = https://github.com/cschlueter/vim-wombat.git
