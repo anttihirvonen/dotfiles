@@ -8,7 +8,7 @@ let mapleader = ","
 " Fuzzy Finder shortcuts
 nmap ,f :FufFileWithCurrentBufferDir<CR>
 nmap ,b :FufBuffer<CR>
-nmap ,t :FufTaggedFile<CR>
+" nmap ,t :FufTaggedFile<CR>
 
 " Default encoding
 set encoding=utf-8
@@ -31,11 +31,33 @@ set guifont=Inconsolata\ Medium\ 11
 set mouse-=a
 set scrolloff=3
 
+" Sane backup settings, so files aren't scattered around directories
 set backup 
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
 set backupskip=/tmp/*,/private/tmp/* 
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
 set writebackup
+
+" Movement between split windows
+noremap <C-k> <C-w><Up>
+noremap <C-j> <C-w><Down>
+noremap <C-l> <C-w><Right>
+noremap <C-h> <C-w><Left>
+
+" Switch between window splits using big J or K and expand the split to its
+" " full size.
+" "
+" " Move vertically in the window through the horizontal splits...
+noremap <C-J> <C-w>j<C-w>_
+noremap <C-K> <C-w>k<C-w>_
+
+" " Move horizontally in the window through the vertical splits...
+noremap <C-H> <C-w>h<C-w>\|
+noremap <C-L> <C-w>l<C-w>\|
+
+" Switch to next/previous buffer
+map <C-Tab> :bnext<CR>
+map <C-S-Tab> :bprevious<CR>
 
 let g:miniBufExplMapWindowNavVim = 1 
 let g:miniBufExplMapWindowNavArrows = 1 
