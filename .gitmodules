@@ -28,3 +28,12 @@
 [submodule "vim/bundle/vim-session"]
 	path = vim/bundle/vim-session
 	url = https://github.com/xolox/vim-session.git
+[submodule "vim/bundle/tasklist.vim"]
+	path = vim/bundle/tasklist.vim
+	url = https://github.com/vim-scripts/TaskList.vim.git
+[submodule "vim/bundle/python.vim"]
+	path = vim/bundle/python.vim
+	url = https://github.com/vim-scripts/python.vim--Vasiliev.git
+[submodule "vim/bundle/molokai"]
+	path = vim/bundle/molokai
+	url = https://github.com/tomasr/molokai.git
