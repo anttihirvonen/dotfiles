@@ -4,6 +4,9 @@
 
 # virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
+# if there's virtualenv with same name as the directory, activate the environment
+# http://kfalck.net/2012/03/14/aktivoi-virtualenv-ymparisto-automaattisesti
+export PROMPT_COMMAND='[ -z "$VIRTUAL_ENV" -a -n "$WORKON_HOME" -a -d $WORKON_HOME/$(basename $PWD) ] && workon $(basename $PWD)'
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
