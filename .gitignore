@@ -1,0 +1,8 @@
+ipython/db
+ipython/history
+ipython/**/db
+ipython/**/log
+ipython/**/pid
+ipython/**/security
+ipython/**/startup
+ipython/**/history.sqlite
