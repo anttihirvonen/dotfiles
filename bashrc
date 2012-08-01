@@ -2,8 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# virtualenvwrapper
+# load virtualenvwrapper if installed
 source /usr/local/bin/virtualenvwrapper.sh
+
 # if there's virtualenv with same name as the directory, activate the environment
 # http://kfalck.net/2012/03/14/aktivoi-virtualenv-ymparisto-automaattisesti
 export PROMPT_COMMAND='[ -z "$VIRTUAL_ENV" -a -n "$WORKON_HOME" -a -d $WORKON_HOME/$(basename $PWD) ] && workon $(basename $PWD)'
@@ -115,3 +116,8 @@ fi
 
 # Activate SCM Breeze shortcuts
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+
+
+YELLOW="\[\033[0;33m\]"
+# User@host'git branch'dir
+export PS1="[\[\e[0;31m\]\u@\h\[\e[m\]\[\e[0;33m\]`__git_ps1` \[\e[m\]\W]\$ "
