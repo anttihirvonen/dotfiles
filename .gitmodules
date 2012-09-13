@@ -49,3 +49,6 @@
 [submodule "scm_breeze"]
 	path = scm_breeze
 	url = git://github.com/ndbroadbent/scm_breeze.git
+[submodule "vim/bundle/handlebars"]
+	path = vim/bundle/handlebars
+	url = git://github.com/nono/vim-handlebars.git
