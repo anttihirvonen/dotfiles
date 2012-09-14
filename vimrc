@@ -22,6 +22,7 @@ set hidden
 set expandtab
 set shiftwidth=4
 set tabstop=4
+set smarttab
 
 " Syntax and file types
 filetype plugin indent on
@@ -94,8 +95,9 @@ let g:miniBufExplModSelTarget = 1
 """"""""""""""""""""""""""""""""""
 " all hilights on 
 let python_highlight_all = 1
+let g:pymode_folding = 0
 
-map <S-Tab> :tabn<cr>
+map <S-Tab> :bnext<cr>
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
