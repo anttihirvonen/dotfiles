@@ -19,8 +19,11 @@
         "define",
         "require",
         "describe",
+        "xdescribe",
         "it",
-        "expect"
+        "xit",
+        "expect",
+        "sinon"
     ],
 
     /*
