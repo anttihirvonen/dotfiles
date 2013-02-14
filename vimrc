@@ -111,7 +111,17 @@ if has("statusline")
      set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
  endif
 
+" Force UltiSnip to use Python 2.* (otherwise it flips out,
+" because Python version checking is buggy)
 let g:UltiSnipsUsePythonVersion = 2
 
+" Set different tab settings for javascript / html / handlebars files
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType handlebars setlocal shiftwidth=2 tabstop=2
+
+" Syntastic settings
+" Active mode by default
+" disable html active checking, since it's slow
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'passive_filetypes': ['html'] }
