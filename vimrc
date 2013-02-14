@@ -4,13 +4,15 @@ call pathogen#infect()
 
 " Set leader key to comma
 let mapleader = ","
+" map jj to ESC
+inoremap jj <ESC>
 
 " Fuzzy Finder shortcuts
 nmap ,f :FufFileWithCurrentBufferDir<CR>
 nmap ,b :FufBuffer<CR>
 nmap ,t :FufTaggedFile<CR>
 
-" Command-T remap
+" Command-T remap to ,c
 nnoremap <Leader>c :CommandT<CR>
 
 " Default encoding
@@ -18,7 +20,7 @@ set encoding=utf-8
 " Allow hiding non-saved buffers
 set hidden
 
-" Whitespace
+" Whitespace settings
 set expandtab
 set shiftwidth=4
 set tabstop=4
@@ -59,7 +61,7 @@ noremap <C-j> <C-w><Down>
 noremap <C-l> <C-w><Right>
 noremap <C-h> <C-w><Left>
 
-" Switch between window splits using big J or K and expand the split to its
+" Switch between window splits using shift-j or shift-k and expand the split to its
 " " full size.
 " " Move vertically in the window through the horizontal splits...
 noremap <C-J> <C-w>j<C-w>_
@@ -122,6 +124,6 @@ autocmd FileType handlebars setlocal shiftwidth=2 tabstop=2
 
 " Syntastic settings
 " Active mode by default
-" disable html active checking, since it's slow
+" disable html active checking, it's slow
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['html'] }
