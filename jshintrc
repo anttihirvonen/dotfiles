@@ -18,6 +18,8 @@
     "predef": [
         "define",
         "require",
+        "before",
+        "after",
         "describe",
         "xdescribe",
         "it",
