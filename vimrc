@@ -7,13 +7,24 @@ let mapleader = ","
 " map jj to ESC
 inoremap jj <ESC>
 
-" Fuzzy Finder shortcuts
-nmap ,f :FufFileWithCurrentBufferDir<CR>
-nmap ,b :FufBuffer<CR>
-nmap ,t :FufTaggedFile<CR>
+" Own shortcuts
+" Fuzzy Finder
+nnoremap ,f :FufFileWithCurrentBufferDir<CR>
+nnoremap ,b :FufBuffer<CR>
+nnoremap ,t :FufTaggedFile<CR>
 
-" Command-T remap to ,c
+" Command-T remap to (,c)
 nnoremap <Leader>c :CommandT<CR>
+" Command-T local to current file directory (,cl)
+nnoremap <Leader>cl :CommandT %:p:h<CR>
+" Change VIM's working directory to same as current file (,cd)
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+" Open file relative to current directory
+nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" Open file relative to current directory in split
+nnoremap <Leader>s :split <C-R>=expand("%:p:h") . "/" <CR>
+" Close buffer
+nnoremap <Leader>d :bd<Return>
 
 " Default encoding
 set encoding=utf-8
