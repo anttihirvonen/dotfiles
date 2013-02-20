@@ -1,0 +1,35 @@
+snippet def "Define (js)" b
+define([${1:deps}], function (${2:params}) {
+  'use strict';
+
+  $0
+});
+endsnippet
+
+snippet req "Require (js)" b
+require([${1:deps}], function (${2:params}) {
+  $0
+});
+endsnippet
+
+snippet afun "Anonymous function (js)" i
+function () {
+  $0
+}
+endsnippet
+
+snippet con "Log to console" b
+console.log("${1:message}");
+endsnippet
+
+snippet des "Describe (js)" b!
+describe('${1:description}', function () {
+	$0
+});
+endsnippet
+
+snippet it "it (js)" b!
+it('${1:description}', function () {
+	$0
+});
+endsnippet
