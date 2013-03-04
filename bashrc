@@ -5,6 +5,9 @@
 # load virtualenvwrapper if installed
 source /usr/local/bin/virtualenvwrapper.sh
 
+# default editor is always vim :)
+EDITOR=vim
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -70,18 +73,21 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    # enable color support of ls and also add handy aliases
+    if [ -x /usr/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+        alias ls='ls --color=auto'
+        #alias dir='dir --color=auto'
+        #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+        alias grep='grep --color=auto'
+        alias fgrep='fgrep --color=auto'
+        alias egrep='egrep --color=auto'
+    fi
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    alias ls='ls -G'
 fi
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -91,6 +97,14 @@ alias actenv='source env/bin/activate'
 function jcurl() {
     # silent curl and format json
     curl -s "$@" | python -mjson.tool
+}
+
+__git_ps1 () 
+{ 
+    local b="$(git symbolic-ref HEAD 2>/dev/null)";
+    if [ -n "$b" ]; then
+        printf " (%s)" "${b##refs/heads/}";
+    fi
 }
 
 # Alias definitions.
@@ -116,3 +130,7 @@ fi
 YELLOW="\[\033[0;33m\]"
 # User@host'git branch'dir
 export PS1="[\[\e[0;31m\]\u@\h\[\e[m\]\[\e[0;33m\]\$(__git_ps1) \[\e[m\]\W]\$ "
+
+# History search using Ctrl+f and Ctrl+g
+bind '"\C-f":history-search-backward'
+bind '"\C-g":history-search-forward'
