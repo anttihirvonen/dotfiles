@@ -53,7 +53,7 @@ endif
 set nu
 " Remove toolbar
 set guioptions-=T
-set guifont=Inconsolata\ Medium\ 11
+" set guifont=Inconsolata\ Medium\ 11
 set mouse=a
 set scrolloff=3
 
@@ -75,16 +75,18 @@ noremap <C-h> <C-w><Left>
 " Switch between window splits using shift-j or shift-k and expand the split to its
 " " full size.
 " " Move vertically in the window through the horizontal splits...
-noremap <C-J> <C-w>j<C-w>_
-noremap <C-K> <C-w>k<C-w>_
+" noremap <C-J> <C-w>j<C-w>_
+" noremap <C-K> <C-w>k<C-w>_
 
 " " Move horizontally in the window through the vertical splits...
-noremap <C-H> <C-w>h<C-w>\|
-noremap <C-L> <C-w>l<C-w>\|
+" noremap <C-H> <C-w>h<C-w>\|
+" noremap <C-L> <C-w>l<C-w>\|
 
 " Switch to next/previous buffer
 map <C-Tab> :bnext<CR>
 map <C-S-Tab> :bprevious<CR>
+map <C-n> :bnext<CR>
+map <C-p> :bprevious<CR>
 
 " Window shortcuts
 " close
