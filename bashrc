@@ -2,8 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# load virtualenvwrapper if installed
-source /usr/local/bin/virtualenvwrapper.sh
+# TODO: move this Mac-spesific PATH configuration to other file
+PATH=${PATH}:/usr/local/share/python:/usr/local/share/npm/bin
+# load virtualenvwrapper if installed (.virtualenvwrapper.sh
+# should be a symlink to real file)
+[ -x ~/.virtualenvwrapper.sh ] && source ~/.virtualenvwrapper.sh
 
 # default editor is always vim :)
 EDITOR=vim
@@ -93,6 +96,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias actenv='source env/bin/activate'
+alias tmux='TERM=screen-256color-bce tmux'
 
 function jcurl() {
     # silent curl and format json
