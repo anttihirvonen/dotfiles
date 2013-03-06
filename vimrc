@@ -44,10 +44,12 @@ syntax on
 
 " Apperance
 if has('gui_running')
-    colorscheme molokai
+    set background=dark
+    colorscheme solarized
 else
     set t_Co=256
-    colorscheme molokai
+    set background=dark
+    colorscheme solarized
 endif 
 " Line numbering
 set nu
