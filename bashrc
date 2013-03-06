@@ -96,20 +96,15 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias actenv='source env/bin/activate'
-alias tmux='TERM=screen-256color-bce tmux'
+alias tmux='TERM=screen-256color-bce tmux -2'
 
 function jcurl() {
     # silent curl and format json
     curl -s "$@" | python -mjson.tool
 }
 
-__git_ps1 () 
-{ 
-    local b="$(git symbolic-ref HEAD 2>/dev/null)";
-    if [ -n "$b" ]; then
-        printf " (%s)" "${b##refs/heads/}";
-    fi
-}
+# Git completion
+. ~/.bash/git.sh
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
