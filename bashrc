@@ -2,8 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# TODO: move this Mac-spesific PATH configuration to other file
-PATH=${PATH}:/usr/local/share/python:/usr/local/share/npm/bin
+# TODO: move this Mac-spesific PATH configuration to other file or git branch
+PATH=${PATH}:/usr/local/share/python:/usr/local/share/npm/bin:$HOME/.rvm/bin
 # load virtualenvwrapper if installed (.virtualenvwrapper.sh
 # should be a symlink to real file)
 [ -x ~/.virtualenvwrapper.sh ] && source ~/.virtualenvwrapper.sh
@@ -133,3 +133,4 @@ export PS1="[\[\e[0;31m\]\u@\h\[\e[m\]\[\e[0;33m\]\$(__git_ps1) \[\e[m\]\W]\$ "
 # History search using Ctrl+f and Ctrl+g
 bind '"\C-f":history-search-backward'
 bind '"\C-g":history-search-forward'
+
