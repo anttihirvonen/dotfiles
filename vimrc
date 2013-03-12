@@ -37,6 +37,9 @@ set shiftwidth=4
 set tabstop=4
 set smarttab
 
+" Always show status line
+set laststatus=2
+
 " Syntax and file types
 filetype plugin indent on
 set cindent
