@@ -97,6 +97,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias actenv='source env/bin/activate'
 alias tmux='TERM=screen-256color-bce tmux -2'
+alias tls="tmux list-sessions"
 
 function jcurl() {
     # silent curl and format json
@@ -134,3 +135,6 @@ export PS1="[\[\e[0;31m\]\u@\h\[\e[m\]\[\e[0;33m\]\$(__git_ps1) \[\e[m\]\W]\$ "
 bind '"\C-f":history-search-backward'
 bind '"\C-g":history-search-forward'
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
