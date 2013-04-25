@@ -137,6 +137,7 @@ let g:UltiSnipsUsePythonVersion = 2
 
 " Set different tab settings for javascript / html / handlebars files
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType handlebars setlocal shiftwidth=2 tabstop=2
 
