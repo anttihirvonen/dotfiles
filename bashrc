@@ -98,6 +98,7 @@ alias l='ls -CF'
 alias actenv='source env/bin/activate'
 alias tmux='TERM=screen-256color-bce tmux -2'
 alias tls="tmux list-sessions"
+alias tat="tmux attach-session -t"
 
 function jcurl() {
     # silent curl and format json
