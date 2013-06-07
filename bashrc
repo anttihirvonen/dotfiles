@@ -4,9 +4,6 @@
 
 # TODO: move this Mac-spesific PATH configuration to other file or git branch
 PATH=${PATH}:/usr/local/share/python:/usr/local/share/npm/bin:$HOME/.rvm/bin
-# load virtualenvwrapper if installed (.virtualenvwrapper.sh
-# should be a symlink to real file)
-[ -x ~/.virtualenvwrapper.sh ] && source ~/.virtualenvwrapper.sh
 
 # default editor is always vim :)
 EDITOR=vim
@@ -107,6 +104,9 @@ function jcurl() {
 
 # Git completion
 . ~/.bash/git.sh
+
+# Virtualenv related stuff
+. ~/.bash/virtualenv.sh
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
