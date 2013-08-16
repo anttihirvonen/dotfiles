@@ -6,7 +6,7 @@
 PATH=${PATH}:/usr/local/share/python:/usr/local/share/npm/bin:$HOME/.rvm/bin
 
 # default editor is always vim :)
-EDITOR=vim
+export EDITOR=vim
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -136,6 +136,10 @@ export PS1="[\[\e[0;31m\]\u@\h\[\e[m\]\[\e[0;33m\]\$(__git_ps1) \[\e[m\]\W]\$ "
 bind '"\C-f":history-search-backward'
 bind '"\C-g":history-search-forward'
 
+# Alias for running KickAssembler 
+alias kickass='java -jar ~/bin/KickAssembler/KickAss.jar'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+# TODO: move these PATH configurations to some place else
+export PATH="~/bin/Vice/tools:$PATH"
