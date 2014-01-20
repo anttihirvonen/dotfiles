@@ -16,9 +16,9 @@ nnoremap ,t :FufTaggedFile<CR>
 " Command-T remap to (,c)
 nnoremap <Leader>c :CommandT<CR>
 " Command-T local to current file directory (,cl)
-nnoremap <Leader>cl :CommandT %:p:h<CR>
+nnoremap <Leader>c, :CommandT %:p:h<CR>
 " Change VIM's working directory to same as current file (,cd)
-nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+" nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 " Open file relative to current directory
 nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Open file relative to current directory in split
@@ -110,11 +110,15 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1 
 
+" open split with C-x (defaults C-s and C-CR don't work)
+let g:CommandTAcceptSelectionSplitMap=['<C-x>']
+
 """"""""""""""""""""""""""""""""""
 " LANGUAGE OPTIONS
 """"""""""""""""""""""""""""""""""
 " all hilights on 
 let python_highlight_all = 1
+" no folding
 let g:pymode_folding = 0
 
 map <S-Tab> :bnext<cr>
@@ -136,7 +140,7 @@ if has("statusline")
 let g:UltiSnipsUsePythonVersion = 2
 
 " Set different tab settings for javascript / html / handlebars files
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType html set ft=htmldjango
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType handlebars setlocal shiftwidth=2 tabstop=2
@@ -151,3 +155,6 @@ let g:html_indent_style1 = "inc"
 " disable html active checking, it's slow
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['html'] }
+
+" Prevent imaps.vim (in vim-latex) mapping <C-j>
+nnoremap <SID>I_won’t_ever_type_this <Plug>IMAP_JumpForward
