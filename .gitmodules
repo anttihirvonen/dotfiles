@@ -19,9 +19,6 @@
 [submodule "vim/bundle/minibufexpl"]
 	path = vim/bundle/minibufexpl
 	url = https://github.com/fholgado/minibufexpl.vim.git
-[submodule "vim/bundle/git-vim"]
-	path = vim/bundle/git-vim
-	url = https://github.com/motemen/git-vim.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -31,9 +28,6 @@
 [submodule "vim/bundle/tasklist.vim"]
 	path = vim/bundle/tasklist.vim
 	url = https://github.com/vim-scripts/TaskList.vim.git
-[submodule "vim/bundle/python.vim"]
-	path = vim/bundle/python.vim
-	url = https://github.com/vim-scripts/python.vim--Vasiliev.git
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
