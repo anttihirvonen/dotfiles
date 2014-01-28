@@ -144,6 +144,7 @@ autocmd FileType html set ft=htmldjango
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType handlebars setlocal shiftwidth=2 tabstop=2
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif 
 
 " More sane HTML indentation configuration
 let g:html_indent_inctags = "html,body,head,tbody"
