@@ -93,9 +93,15 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias actenv='source env/bin/activate'
-alias tmux='TERM=screen-256color-bce tmux -2'
+# -u forces Unicode mode for tmux
+# for some reason locales don't work correctly
+# over ssh without that flag :o
+# TODO: debug later
+alias tmux='TERM=screen-256color-bce tmux -2 -u'
 alias tls="tmux list-sessions"
 alias tat="tmux attach-session -t"
+alias tnew="tmux new-session -s"
+alias tcur="tmux new-session -s $(basename $PWD)"
 
 function jcurl() {
     # silent curl and format json
