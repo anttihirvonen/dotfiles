@@ -14,9 +14,9 @@ nnoremap ,b :FufBuffer<CR>
 nnoremap ,t :FufTaggedFile<CR>
 
 " Command-T remap to (,c)
-nnoremap <Leader>c :CommandT<CR>
+nnoremap <Leader>c :CtrlP<CR>
 " Command-T local to current file directory (,cl)
-nnoremap <Leader>c, :CommandT %:p:h<CR>
+nnoremap <Leader>c, :CtrlP %:p:h<CR>
 " Change VIM's working directory to same as current file (,cd)
 " nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 " Open file relative to current directory
