@@ -13,10 +13,11 @@ nnoremap ,f :FufFileWithCurrentBufferDir<CR>
 nnoremap ,b :FufBuffer<CR>
 nnoremap ,t :FufTaggedFile<CR>
 
-" Command-T remap to (,c)
+" Ctrl-p remap to (,c)
 nnoremap <Leader>c :CtrlP<CR>
-" Command-T local to current file directory (,cl)
+" Ctrl-p local to current file directory (,cl)
 nnoremap <Leader>c, :CtrlP %:p:h<CR>
+
 " Change VIM's working directory to same as current file (,cd)
 " nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 " Open file relative to current directory
@@ -36,6 +37,9 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set smarttab
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
 
 " Always show status line
 set laststatus=2
@@ -110,8 +114,6 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1 
 
-" open split with C-x (defaults C-s and C-CR don't work)
-let g:CommandTAcceptSelectionSplitMap=['<C-x>']
 
 """"""""""""""""""""""""""""""""""
 " LANGUAGE OPTIONS
