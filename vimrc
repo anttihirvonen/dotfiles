@@ -192,3 +192,8 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1 
+
+" Ctrlp settings
+" Don't mess my buffer change mapping,
+" so map ctrlp to <c-b>
+let g:ctrlp_map = '<c-b>'
