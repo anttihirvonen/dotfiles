@@ -119,6 +119,15 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " map jj to ESC
 inoremap jj <ESC>
+
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <c-space> ?
+
 " Movement between split windows
 noremap <C-k> <C-w><Up>
 noremap <C-j> <C-w><Down>
@@ -136,9 +145,6 @@ noremap <C-h> <C-w><Left>
 " noremap <C-L> <C-w>l<C-w>\|
 
 " Switch to next/previous buffer
-map <C-Tab> :bnext<CR>
-map <S-Tab> :bnext<cr>
-map <C-S-Tab> :bprevious<CR>
 map <C-n> :bnext<CR>
 map <C-p> :bprevious<CR>
 
@@ -149,9 +155,6 @@ map <Leader>wq <C-w>q
 map <Leader>we <C-W>=
 " blow out this split vertically
 map <Leader>wf <C-W>_
-
-" TASKLIST
-map <Leader>l <Plug>TaskList
 
 """"""""""""""""""""""""""""""""""
 " Language / misc plugin options
