@@ -1,13 +1,86 @@
-" Init pathogen
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Load plugins using Pathogen
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set leader key to comma
 let mapleader = ","
-" map jj to ESC
-inoremap jj <ESC>
 
-" Own shortcuts
+" Default encoding
+set encoding=utf-8
+
+" Sane backup settings, so files aren't scattered around 
+" directories
+set backup 
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
+set backupskip=/tmp/*,/private/tmp/* 
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
+set writebackup
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" User interface
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Apperance
+if has('gui_running')
+    set background=dark
+    colorscheme solarized
+else
+    set t_Co=256
+    set background=dark
+    colorscheme solarized
+endif 
+
+" Line numbering on
+set nu
+" Remove toolbar
+set guioptions-=T
+" set guifont=Inconsolata\ Medium\ 11
+set mouse=a
+set scrolloff=3
+
+if has("statusline")
+     set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+endif
+
+" Allow hiding non-saved buffers
+set hidden
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+
+" Always show status line
+set laststatus=2
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indenting
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+" be smart about tabs
+set smarttab
+
+" Syntax and file types
+filetype plugin indent on
+set cindent
+syntax on
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keymaps
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tasklist
+map <Leader>l <Plug>TaskList
+
 " Fuzzy Finder
 nnoremap ,f :FufFileWithCurrentBufferDir<CR>
 nnoremap ,b :FufBuffer<CR>
@@ -18,6 +91,9 @@ nnoremap <Leader>c :CtrlP<CR>
 " Ctrl-p local to current file directory (,cl)
 nnoremap <Leader>c, :CtrlP %:p:h<CR>
 
+" NERDTree open
+map <F2> :NERDTreeToggle<CR>
+
 " Change VIM's working directory to same as current file (,cd)
 " nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 " Open file relative to current directory
@@ -27,54 +103,22 @@ nnoremap <Leader>s :split <C-R>=expand("%:p:h") . "/" <CR>
 " Close buffer
 nnoremap <Leader>d :bd<Return>
 
-" Default encoding
-set encoding=utf-8
-" Allow hiding non-saved buffers
-set hidden
+" Prevent imaps.vim (in vim-latex) mapping <C-j>
+nnoremap <SID>I_won’t_ever_type_this <Plug>IMAP_JumpForward
 
-" Whitespace settings
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set smarttab
+" Autocompletion
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-
-" Always show status line
-set laststatus=2
-
-" Syntax and file types
-filetype plugin indent on
-set cindent
-syntax on
-
-" Apperance
-if has('gui_running')
-    set background=dark
-    colorscheme solarized
-else
-    set t_Co=256
-    set background=dark
-    colorscheme solarized
-endif 
-" Line numbering
-set nu
-" Remove toolbar
-set guioptions-=T
-" set guifont=Inconsolata\ Medium\ 11
-set mouse=a
-set scrolloff=3
-
-" Sane backup settings, so files aren't scattered around 
-" directories
-set backup 
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
-set backupskip=/tmp/*,/private/tmp/* 
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
-set writebackup
-
-" WINDOW SETTINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Window management / movement / buffers / editing
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" map jj to ESC
+inoremap jj <ESC>
 " Movement between split windows
 noremap <C-k> <C-w><Up>
 noremap <C-j> <C-w><Down>
@@ -93,6 +137,7 @@ noremap <C-h> <C-w><Left>
 
 " Switch to next/previous buffer
 map <C-Tab> :bnext<CR>
+map <S-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<CR>
 map <C-n> :bnext<CR>
 map <C-p> :bprevious<CR>
@@ -108,45 +153,25 @@ map <Leader>wf <C-W>_
 " TASKLIST
 map <Leader>l <Plug>TaskList
 
-" miniBufExplorer settings
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1 
-
-
 """"""""""""""""""""""""""""""""""
-" LANGUAGE OPTIONS
+" Language / misc plugin options
 """"""""""""""""""""""""""""""""""
-" all hilights on 
-let python_highlight_all = 1
-" no folding
-let g:pymode_folding = 0
-
-map <S-Tab> :bnext<cr>
-set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-map <F2> :NERDTreeToggle<CR>
-if has("statusline")
-     set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
- endif
-
-" Force UltiSnip to use Python 2.* (otherwise it flips out,
-" because Python version checking is buggy)
-let g:UltiSnipsUsePythonVersion = 2
-
 " Set different tab settings for javascript / html / handlebars files
 autocmd FileType html set ft=htmldjango
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType handlebars setlocal shiftwidth=2 tabstop=2
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif 
+
+" PYTHON
+" all hilights on 
+let python_highlight_all = 1
+" no folding
+let g:pymode_folding = 0
+
+" Force UltiSnip to use Python 2.* (otherwise it flips out,
+" because Python version checking is buggy)
+let g:UltiSnipsUsePythonVersion = 2
 
 " More sane HTML indentation configuration
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -159,5 +184,8 @@ let g:html_indent_style1 = "inc"
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['html'] }
 
-" Prevent imaps.vim (in vim-latex) mapping <C-j>
-nnoremap <SID>I_won’t_ever_type_this <Plug>IMAP_JumpForward
+" miniBufExplorer settings
+let g:miniBufExplMapWindowNavVim = 1 
+let g:miniBufExplMapWindowNavArrows = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1 
+let g:miniBufExplModSelTarget = 1 
