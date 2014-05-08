@@ -101,7 +101,13 @@ alias tmux='TERM=screen-256color-bce tmux -2 -u'
 alias tls="tmux list-sessions"
 alias tat="tmux attach-session -t"
 alias tnew="tmux new-session -s"
-alias tcur="tmux new-session -s $(basename $PWD)"
+
+function tcur() {
+    # Create tmux session with current directory name
+    # as session name
+    tmux new-session -s $(basename $PWD)
+
+}
 
 function jcurl() {
     # silent curl and format json
