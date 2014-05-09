@@ -183,7 +183,9 @@ let g:pymode_folding = 0
 " by YouCompleteMe)
 let g:pymode_rope_completion = 0
 " Disable pymode's linting (use Syntastic)
+" and ROPE (use jedi-vim)
 let g:pymode_lint = 0
+let g:pymode_rope = 0
 
 " Force UltiSnip to use Python 2.* (otherwise it flips out,
 " because Python version checking is buggy)
@@ -212,3 +214,6 @@ let g:miniBufExplModSelTarget = 1
 " Don't mess my buffer change mapping,
 " so map ctrlp to <c-b>
 let g:ctrlp_map = '<c-b>'
+
+" jedi-vim
+let g:jedi#use_tabs_not_buffers = 0
