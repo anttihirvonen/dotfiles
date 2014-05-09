@@ -81,11 +81,6 @@ syntax on
 " Tasklist
 map <Leader>l <Plug>TaskList
 
-" Fuzzy Finder
-nnoremap ,f :FufFileWithCurrentBufferDir<CR>
-nnoremap ,b :FufBuffer<CR>
-nnoremap ,t :FufTaggedFile<CR>
-
 " Ctrl-p remap to (,c)
 nnoremap <Leader>c :CtrlP<CR>
 " Ctrl-p local to current file directory (,cl)
