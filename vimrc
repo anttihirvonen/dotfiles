@@ -171,6 +171,11 @@ au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfil
 let python_highlight_all = 1
 " no folding
 let g:pymode_folding = 0
+" no code completion from Rope (replaced
+" by YouCompleteMe)
+let g:pymode_rope_completion = 0
+" Disable pymode's linting (use Syntastic)
+let g:pymode_lint = 0
 
 " Force UltiSnip to use Python 2.* (otherwise it flips out,
 " because Python version checking is buggy)
@@ -186,6 +191,8 @@ let g:html_indent_style1 = "inc"
 " disable html active checking, it's slow
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['html'] }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 
 " miniBufExplorer settings
 let g:miniBufExplMapWindowNavVim = 1 
