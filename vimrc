@@ -65,7 +65,7 @@ endif
 set hidden
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc,*.class
 
 " Always show status line
 set laststatus=2
@@ -203,6 +203,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['html'] }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+" Save classpath to .syntastic_javac_config
+let g:syntastic_java_javac_config_file_enabled = 1
 
 " miniBufExplorer settings
 let g:miniBufExplMapWindowNavVim = 1 
