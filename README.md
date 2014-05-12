@@ -19,3 +19,9 @@ TODO: document everything that needs to be done to successfully set up a dev env
 # Links
 
 [Inconsolata – the best programming font](http://www.levien.com/type/myfonts/inconsolata.html)
+
+# TODO
+- [ ] Use Vundle instead of Pathogen to install Vim plugins
+- [ ] Install YouCompleteMe for C/C++ completion (some problems with MacVim, resolve)
+- [ ] Convert Ruby-based dotfiles install script to shell script
+- [ ] Add script for setting OS X defaults
