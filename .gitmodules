@@ -67,3 +67,9 @@
 [submodule "tmux/tmux-resurrect"]
 	path = tmux/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "vim/bundle/vim-obsession"]
+	path = vim/bundle/vim-obsession
+	url = https://github.com/tpope/vim-obsession.git
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
