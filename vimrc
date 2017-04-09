@@ -199,12 +199,20 @@ let g:html_indent_style1 = "inc"
 " Syntastic settings
 " Active mode by default
 " disable html active checking, it's slow
+" let g:syntastic_debug = 1
+" let g:syntastic_debug_file = "~/syntastic.log" 
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['html'] }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 " Save classpath to .syntastic_javac_config
 let g:syntastic_java_javac_config_file_enabled = 1
+" Rust-related settings
+let g:syntastic_rust_rustc_exe = 'cargo check'
+let g:syntastic_rust_rustc_fname = ' '
+let g:syntastic_rust_rustc_args = '--'
+let g:syntastic_rust_checkers = ['rustc']
+let g:rustfmt_autosave = 1
 
 " miniBufExplorer settings
 let g:miniBufExplMapWindowNavVim = 1 
